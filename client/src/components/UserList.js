@@ -1,12 +1,14 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
+const BASE_URL = "https://crud-production-c269.up.railway.app";
+
 export const UserList = () => {
 
     const [userData, setUserData] = useState(null);
 
     const fetchUserData = async () => {
-        const resp = await axios.get("/getUsers");
+        const resp = await axios.get(`${BASE_URL}/getUsers`);
         console.log(resp);
 
         // if No users are there please dont set the values
@@ -27,7 +29,7 @@ export const UserList = () => {
         if(!userName || !userEmail) {
             alert("Please enter both name and email both");
         } else {
-            const resp = await axios.put(`/editUser/${user._id}`, {
+            const resp = await axios.put(`${BASE_URL}/editUser/${user._id}`, {
                 name: userName,
                 email: userEmail,
             });
@@ -37,7 +39,7 @@ export const UserList = () => {
 
     // Delete
     const handleDelete = async (userId) => {
-        const resp = await axios.delete(`/deleteUser/${userId}`)
+        const resp = await axios.delete(`${BASE_URL}/deleteUser/${userId}`)
         console.log(resp);
     }
   return (
