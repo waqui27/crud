@@ -7,15 +7,11 @@ export const UserList = () => {
 
     const [userData, setUserData] = useState(null);
 
-    const fetchUserData = async () => {
-        const resp = await axios.get(`${BASE_URL}/getUsers`);
-        console.log(resp);
+    const fetchUsersData = async () => {
+    const resp = await axios.get(`${BASE_URL}/getUsers`);
 
-        // if No users are there please dont set the values
-        if(resp.data.users.length > 0) {
-            setUserData(resp.data.users);
-        }
-    };
+    setUserData(resp.data.users);
+  };
 
     useEffect(() => {
         fetchUserData();
