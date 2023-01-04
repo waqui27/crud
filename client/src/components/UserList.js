@@ -19,7 +19,7 @@ export const UserList = () => {
 
     useEffect(() => {
         fetchUserData();
-    }, [userData]);
+    }, []);
 
     // Edit
     const handleEdit = async (user) => {
@@ -34,6 +34,9 @@ export const UserList = () => {
                 email: userEmail,
             });
             console.log(resp);
+            if (resp.data.success) {
+                fetchUsersData();
+              }
         }
     };
 
@@ -41,6 +44,9 @@ export const UserList = () => {
     const handleDelete = async (userId) => {
         const resp = await axios.delete(`${BASE_URL}/deleteUser/${userId}`)
         console.log(resp);
+        if (resp.data.success) {
+            fetchUsersData();
+          }
     }
   return (
     <div>
