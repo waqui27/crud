@@ -15,19 +15,27 @@ export const Form = () => {
     setUserData(resp.data.users);
   };
 
+    useEffect(() => {
+        fetchUserData();
+    }, []);
+
     // Function to send the Data
     const submitData = async () => {
-        const data = {
-            name: userName,
-            email: userEmail,
-        };
-        const res = await axios.post(`${BASE_URL}/createUser`, data)
-        
-        if (res.data.success) {
-        toast.success("User created successfully");
-        fetchUsersData();
-      }
-    };
+        try {
+                const data = {
+                    name: userName,
+                    email: userEmail,
+                };
+                const res = await axios.post(`${BASE_URL}/createUser`, data)
+                
+                if (res.data.success) {
+                fetchUsersData();
+                }
+            } catch (error) {
+                console.log(error)
+              }
+    }; 
+    
 
     // To handle the Default
     const handleSubmit = (event) => {

@@ -19,7 +19,8 @@ export const UserList = () => {
 
     // Edit
     const handleEdit = async (user) => {
-        const userName = prompt("Enter you new name", `${user.name}`)
+        try {
+            const userName = prompt("Enter you new name", `${user.name}`)
         const userEmail = prompt("Enter your new Email", `${user.email}`)
 
         if(!userName || !userEmail) {
@@ -34,15 +35,25 @@ export const UserList = () => {
                 fetchUsersData();
               }
         }
+            
+        } catch (error) {
+            console.log(error)
+        }
+        
     };
 
     // Delete
     const handleDelete = async (userId) => {
-        const resp = await axios.delete(`${BASE_URL}/deleteUser/${userId}`)
+        try {
+            const resp = await axios.delete(`${BASE_URL}/deleteUser/${userId}`)
         console.log(resp);
         if (resp.data.success) {
             fetchUsersData();
           }
+        } catch (error) {
+            console.log(error)
+        }
+        
     }
   return (
     <div>
