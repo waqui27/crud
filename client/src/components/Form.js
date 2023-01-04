@@ -1,20 +1,11 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 
-const BASE_URL = "https://crud-production-c269.up.railway.app";
-
-export const Form = () => {
+export const Form = ( { fetchUsersData, BASE_URL } ) => {
     // To store the value from frontend
     const [userName, setUserName] = useState("");
     const [userEmail, setUserEmail] = useState("");
     console.log(userName, userEmail);
-   
-    const fetchUsersData = async () => {
-    const resp = await axios.get(`${BASE_URL}/getUsers`);
-
-    setUserData(resp.data.users);
-  };
-
     // Function to send the Data
     const submitData = async () => {
         try {

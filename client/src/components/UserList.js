@@ -1,21 +1,6 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
 
-const BASE_URL = "https://crud-production-c269.up.railway.app";
-
-export const UserList = () => {
-
-    const [userData, setUserData] = useState(null);
-
-    const fetchUsersData = async () => {
-    const resp = await axios.get(`${BASE_URL}/getUsers`);
-
-    setUserData(resp.data.users);
-  };
-
-    useEffect(() => {
-        fetchUserData();
-    }, []);
+export const UserList = ({ userData, fetchUsersData, BASE_URL }) => {
 
     // Edit
     const handleEdit = async (user) => {
