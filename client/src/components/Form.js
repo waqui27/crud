@@ -8,6 +8,12 @@ export const Form = () => {
     const [userName, setUserName] = useState("");
     const [userEmail, setUserEmail] = useState("");
     console.log(userName, userEmail);
+   
+    const fetchUsersData = async () => {
+    const resp = await axios.get(`${BASE_URL}/getUsers`);
+
+    setUserData(resp.data.users);
+  };
 
     // Function to send the Data
     const submitData = async () => {
@@ -16,7 +22,11 @@ export const Form = () => {
             email: userEmail,
         };
         const res = await axios.post(`${BASE_URL}/createUser`, data)
-        console.log(res);
+        
+        if (res.data.success) {
+        toast.success("User created successfully");
+        fetchUsersData();
+      }
     };
 
     // To handle the Default
