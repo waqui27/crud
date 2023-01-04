@@ -15,10 +15,6 @@ export const Form = () => {
     setUserData(resp.data.users);
   };
 
-    useEffect(() => {
-        fetchUserData();
-    }, []);
-
     // Function to send the Data
     const submitData = async () => {
         try {
