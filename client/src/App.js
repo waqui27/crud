@@ -29,8 +29,6 @@ function App() {
         fetchUsersData={fetchUsersData}
         BASE_URL={BASE_URL}
       />
-
-      <Toaster />
     </div>
   );
 }

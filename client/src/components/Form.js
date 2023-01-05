@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 
-export const Form = ( { fetchUsersData, BASE_URL } ) => {
+const Form = ( { fetchUsersData, BASE_URL } ) => {
     // To store the value from frontend
     const [userName, setUserName] = useState("");
     const [userEmail, setUserEmail] = useState("");
@@ -100,3 +100,5 @@ export const Form = ( { fetchUsersData, BASE_URL } ) => {
     </div>
   )
 }
+
+export default Form;

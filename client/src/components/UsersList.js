@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const UserList = ({ userData, fetchUsersData, BASE_URL }) => {
+const UsersList = ({ userData, fetchUsersData, BASE_URL }) => {
 
     // Edit
     const handleEdit = async (user) => {
@@ -93,3 +93,6 @@ export const UserList = ({ userData, fetchUsersData, BASE_URL }) => {
     </div>
   )
 }
+
+
+export default UsersList;
