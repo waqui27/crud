@@ -5,7 +5,7 @@ import "./App.css";
 import Form from "./components/Form";
 import UsersList from "./components/UsersList";
 
-const BASE_URL = "https://crud-production-c269.up.railway.app";
+const BASE_URL = "https://crud-08g1.onrender.com";
 
 function App() {
   const [userData, setUserData] = useState(null);
